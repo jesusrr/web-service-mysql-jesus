@@ -7,5 +7,8 @@ import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class UsersRepository implements PanacheRepositoryBase<UsersEntity, Long> {
+    public UsersEntity findByName(String name){
+        return find("name", name).firstResult();
+    }
 
 }

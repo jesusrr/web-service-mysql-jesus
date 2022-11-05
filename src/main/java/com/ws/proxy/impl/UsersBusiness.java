@@ -1,8 +1,9 @@
-package com.ws.business.impl;
+package com.ws.proxy.impl;
 
 import com.ws.business.IUsersBusiness;
 import com.ws.mapper.IUsersMapper;
 import com.ws.model.dto.UsersDto;
+import com.ws.model.entity.UsersEntity;
 import com.ws.proxy.IUsersProxy;
 import com.ws.service.IUsersService;
 import lombok.extern.slf4j.Slf4j;
@@ -29,10 +30,9 @@ public class UsersBusiness implements IUsersBusiness {
 
     @Override
     public List<UsersDto> findAll() {
-  //      return usersProxy.getAll()
-  //              .stream().map(mapper::toProxyDto)
-  //              .collect(Collectors.toList());
-    return null;
+       return usersProxy.getAll()
+                .stream().map(mapper::toProxyDto)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -53,8 +53,15 @@ public class UsersBusiness implements IUsersBusiness {
     }
 
     @Override
-    public UsersDto save(UsersDto usersDto) {
+    public UsersDto findByNameV2(String name) throws Exception {
         return null;
     }
+
+    @Override
+    public UsersDto save(UsersDto usersDto) {
+       return usersService.save(usersDto);
+    }
+
+
 
 }

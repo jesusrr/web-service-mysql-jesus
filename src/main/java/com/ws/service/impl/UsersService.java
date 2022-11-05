@@ -40,9 +40,5 @@ public class UsersService implements IUsersService {
         return usersDto;
     }
 
-    @Override
-    public UsersDto update(UsersDto usersDto, Long id) {
-        return null;
-    }
 
 }
