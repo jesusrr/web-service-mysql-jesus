@@ -11,3 +11,9 @@ quarkus:
   rest-client:
     post-proxy:
       url: https://gorest.co.in/public/v2/
+mp:
+  jwt:
+    verify:
+      issuer: byte-company
+      publickey:
+        location: publickey.pem

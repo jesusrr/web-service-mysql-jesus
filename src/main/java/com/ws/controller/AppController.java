@@ -7,6 +7,7 @@ import com.ws.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpStatus;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.*;
@@ -49,6 +50,7 @@ public class AppController {
     }
 
     @GET
+    @RolesAllowed("admin")
     @Path("/users")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
